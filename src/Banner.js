@@ -28,7 +28,7 @@ const Banner = () => {
 
     return (
         <header
-            className='h-[400px] sm:h-[500px] lg:h-[600px] xl:h-[500px] 2xl:h-[7000px] bg-no-repeat bg-cover bg-center'
+            className='h-[400px] sm:h-[500px] lg:h-[600px] xl:h-[700px] 2xl:h-[7000px] bg-no-repeat bg-cover bg-center'
             style={{
                 backgroundSize: "cover",
                 backgroundImage: `url("https://image.tmdb.org/t/p/original/${filme?.backdrop_path}")`,
