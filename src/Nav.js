@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import requests from './Requests';
-import axios from './axios';
+import { useNavigate } from 'react-router-dom';
 
 import logo from "./assets/image/NetFlix.svg";
 import avatar from "./assets/avatar/homem preto.svg";
@@ -8,11 +7,7 @@ import avatar from "./assets/avatar/homem preto.svg";
 const Nav = () => {
 
     const [mostrar, setMostrar] = useState(false);
-    const [buscar, setBuscar] = useState("");
-
-    const handleInput = (e) => {
-        setBuscar(e.target.value);
-    }
+    const navigate = useNavigate();
 
     const transicaoNavBar = () => {
         if (window.scrollY > 100) {
@@ -27,18 +22,6 @@ const Nav = () => {
         return () => window.removeEventListener("scroll", transicaoNavBar);
     }, []);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            if (buscar) {
-                const request = await axios.get(`${requests.fetchSearch}${buscar}`);
-                console.log(request);
-            }
-        }
-        fetchData();
-    }, [buscar]);
-
-    console.log(buscar);
-
     return (
         <div
             className={`fixed top-0 left-0 right-0 z-50 transition duration-200 ease-in-out ${mostrar && "bg-black"
@@ -48,6 +31,7 @@ const Nav = () => {
                 className="h-20 flex items-center justify-between px-10"
             >
                 <img
+                    onClick={() => navigate('/')}
                     className="w-28 cursor-pointer transition duration-200 transform hover:scale-125"
                     src={logo}
                     alt="Netflix Logo"
@@ -59,6 +43,7 @@ const Nav = () => {
                     onChange={(e) => { e.preventDefault() }}
                 />
                 <img
+                    onClick={() => navigate('/perfil')}
                     className="h-12 w-12 rounded-full cursor-pointer transition duration-200 transform hover:scale-125"
                     src={avatar}
                     alt="Avatar"

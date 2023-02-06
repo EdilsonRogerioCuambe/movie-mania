@@ -7,7 +7,7 @@ import './HomeScreen.css';
 
 const HomeScreen = () => {
     return (
-        <div className='home__screen'>
+        <div className='h-full bg-black'>
             <Nav />
             <Banner />
             <Linha title="Originais Netflix" fetchUrl={requests.fetchNetflixOriginals} isLargeRow />
