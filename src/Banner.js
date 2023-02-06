@@ -26,6 +26,10 @@ const Banner = () => {
         return str?.length > n ? str.substr(0, n - 1) + "..." : str;
     }
 
+    const onClicar = () => {
+        window.location.href = `https://image.tmdb.org/t/p/original//${filme?.id}`;
+    }
+
     return (
         <header
             className='h-[400px] sm:h-[500px] lg:h-[600px] xl:h-[700px] 2xl:h-[7000px] bg-no-repeat bg-cover bg-center'
@@ -44,6 +48,7 @@ const Banner = () => {
                     className="flex items-center px-10 pt-4"
                 >
                     <button
+                        onClick={onClicar}
                         className="flex items-center bg-purple-600 text-white px-6 py-2 rounded-md transition duration-200 transform hover:scale-105"
                     >Assitir</button>
                     <button
